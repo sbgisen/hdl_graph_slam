@@ -348,4 +348,8 @@ bool GraphSLAM::load(const std::string& filename) {
   return true;
 }
 
+bool GraphSLAM::computeMarginals(g2o::SparseBlockMatrix<Eigen::MatrixXd>& spinv, const g2o::VertexSE3* vertex){
+  return graph->computeMarginals(spinv, vertex);
+}
+
 }  // namespace hdl_graph_slam

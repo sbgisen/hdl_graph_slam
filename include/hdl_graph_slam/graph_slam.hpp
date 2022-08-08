@@ -7,6 +7,7 @@
 #include <ros/time.h>
 
 #include <g2o/core/hyper_graph.h>
+#include <g2o/core/sparse_optimizer.h>
 
 namespace g2o {
 class VertexSE3;
@@ -136,10 +137,11 @@ public:
    * @param filename  output filename
    */
   bool load(const std::string& filename);
+  bool computeMarginals(g2o::SparseBlockMatrix<Eigen::MatrixXd>& spinv, const g2o::VertexSE3* vertex);
 
 public:
   g2o::RobustKernelFactory* robust_kernel_factory;
-  std::unique_ptr<g2o::HyperGraph> graph;  // g2o graph
+  std::unique_ptr<g2o::SparseOptimizer> graph;  // g2o graph
 };
 
 }  // namespace hdl_graph_slam

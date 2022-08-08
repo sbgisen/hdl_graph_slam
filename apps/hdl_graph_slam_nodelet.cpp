@@ -58,6 +58,7 @@
 #include <g2o/edge_se3_priorxyz.hpp>
 #include <g2o/edge_se3_priorvec.hpp>
 #include <g2o/edge_se3_priorquat.hpp>
+#include <g2o/core/sparse_optimizer.h>
 
 namespace hdl_graph_slam {
 
@@ -195,6 +196,14 @@ private:
       const auto& keyframe = keyframe_queue[i];
       // new_keyframes will be tested later for loop closure
       new_keyframes.push_back(keyframe);
+
+      // Get covariance
+      g2o::SparseBlockMatrix<Eigen::MatrixXd> spinv;
+      graph_slam->computeMarginals(spinv, keyframe->node);
+      g2o::SparseBlockMatrix<Eigen::MatrixXd>::SparseMatrixBlock* b = spinv.blockCols()[spinv.blockCols().size()-1].begin()->second;
+      auto inverse_b = b -> inverse();
+      std::cout << "covariance\n" << spinv << std::endl;
+      std::cout << inverse_b <<  std::endl;
 
       // add pose node
       Eigen::Isometry3d odom = odom2map * keyframe->odom;
