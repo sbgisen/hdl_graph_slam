@@ -28,7 +28,7 @@ namespace hdl_graph_slam {
 
 class FloorDetectionNodelet : public nodelet::Nodelet {
 public:
-  typedef pcl::PointXYZI PointT;
+  typedef pcl::PointXYZRGB PointT;
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
   FloorDetectionNodelet() {}

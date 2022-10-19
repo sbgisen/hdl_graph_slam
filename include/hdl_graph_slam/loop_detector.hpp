@@ -30,7 +30,7 @@ public:
  */
 class LoopDetector {
 public:
-  typedef pcl::PointXYZI PointT;
+  typedef pcl::PointXYZRGB PointT;
 
   /**
    * @brief constructor

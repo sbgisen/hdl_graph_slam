@@ -63,7 +63,7 @@ namespace hdl_graph_slam {
 
 class HdlGraphSlamNodelet : public nodelet::Nodelet {
 public:
-  typedef pcl::PointXYZI PointT;
+  typedef pcl::PointXYZRGB PointT;
   typedef message_filters::sync_policies::ApproximateTime<nav_msgs::Odometry, sensor_msgs::PointCloud2> ApproxSyncPolicy;
 
   HdlGraphSlamNodelet() {}

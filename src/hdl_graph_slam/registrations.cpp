@@ -19,8 +19,8 @@
 
 namespace hdl_graph_slam {
 
-pcl::Registration<pcl::PointXYZI, pcl::PointXYZI>::Ptr select_registration_method(ros::NodeHandle& pnh) {
-  using PointT = pcl::PointXYZI;
+pcl::Registration<pcl::PointXYZRGB, pcl::PointXYZRGB>::Ptr select_registration_method(ros::NodeHandle& pnh) {
+  using PointT = pcl::PointXYZRGB;
 
   // select a registration method (ICP, GICP, NDT)
   std::string registration_method = pnh.param<std::string>("registration_method", "NDT_OMP");

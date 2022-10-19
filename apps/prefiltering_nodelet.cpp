@@ -26,7 +26,7 @@ namespace hdl_graph_slam {
 
 class PrefilteringNodelet : public nodelet::Nodelet {
 public:
-  typedef pcl::PointXYZI PointT;
+  typedef pcl::PointXYZRGB PointT;
 
   PrefilteringNodelet() {}
   virtual ~PrefilteringNodelet() {}

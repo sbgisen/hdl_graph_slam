@@ -32,7 +32,7 @@ namespace hdl_graph_slam {
 
 class ScanMatchingOdometryNodelet : public nodelet::Nodelet {
 public:
-  typedef pcl::PointXYZI PointT;
+  typedef pcl::PointXYZRGB PointT;
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
   ScanMatchingOdometryNodelet() {}
@@ -294,7 +294,7 @@ private:
   /**
    * @brief publish scan matching status
    */
-  void publish_scan_matching_status(const ros::Time& stamp, const std::string& frame_id, pcl::PointCloud<pcl::PointXYZI>::ConstPtr aligned, const std::string& msf_source, const Eigen::Isometry3f& msf_delta) {
+  void publish_scan_matching_status(const ros::Time& stamp, const std::string& frame_id, pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr aligned, const std::string& msf_source, const Eigen::Isometry3f& msf_delta) {
     if(!status_pub.getNumSubscribers()) {
       return;
     }
