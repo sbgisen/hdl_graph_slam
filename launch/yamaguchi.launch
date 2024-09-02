@@ -1,4 +1,8 @@
 <launch>
+  <include file="$(find wheeltec_create_map)/launch/lio_sam_slam.launch">
+  </include>
+
+
 
   <include file="$(find hdl_graph_slam)/launch/hdl_graph_slam_imu.launch">
     <!-- <arg name="points_topic" value="/velodyne/points_raw" /> -->
